@@ -1,28 +1,28 @@
 import Post from "./Post";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function Posts({ posts }) {
-    const [postListTwo, setPostListTwo] = useState([])  
-    useEffect(() => {
-        let postList = [];
+  const [postList, setPostList] = useState([]);
 
-        for (let i = 0; i < 10; i++) {
-            var postIndex = Math.floor(Math.random() * (posts.length - 1)); 
-            postList += posts[postIndex];
-            console.log(postList);
-        }
-        setPostListTwo(postList);
-    });
-        
-    
-    
-    return (
-        <main>
-            {postListTwo.map((post, index) => (
-                <Post
-                    {...post}
-                />
-            ))}
-        </main>
-    )
+  const getPosts = () => {
+    for (let i = 0; i < 10; i++) {
+      var postIndex = Math.floor(Math.random() * (posts.length - 1));
+
+      postList.push(posts[postIndex]);
+    }
+  };
+
+  getPosts();
+  
+
+  return (
+    <main>
+      {postList.length === 0 && "No Posts to show!"}
+      {postList.map((post, index) => (
+        <Post {...post} />
+      ))}
+      
+      <button onClick={getPosts}>Load More Posts</button>
+    </main>
+  );
 }

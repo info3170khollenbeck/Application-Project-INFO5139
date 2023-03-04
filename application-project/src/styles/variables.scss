@@ -25,3 +25,16 @@ $title-font: 'Gaegu', cursive;
       @content;
     }
   }
+
+  @mixin post-layout {
+    border: 1px solid $primary-color;
+    background-color: white;
+    width: 50%;
+    min-width: 400px;
+    max-width: 500px;
+    min-height: 100px;
+    margin: auto;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }

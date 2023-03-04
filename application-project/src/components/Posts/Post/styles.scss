@@ -1,14 +1,21 @@
 @import "../../../styles/variables.scss";
 
-.post-component {
-  border: 1px solid $primary-color;
-  background-color: white;
-  max-width: 500px;
-  min-height: 150px;
-  margin: auto;
+.selfcare,
+.trivia,
+.break {
+  @include post-layout;
   padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
+}
+
+.image {
+    @include post-layout;
+    padding: 0;
+
+    div {
+        padding: 0;
+        margin: 0;
+    }
+}
 
   h3 {
     font-family: $title-font;
@@ -34,6 +41,7 @@
   }
 
   .post-img {
-    max-width: 500px;
+    width: 100%;
+    margin: 0;
   }
-}
+
