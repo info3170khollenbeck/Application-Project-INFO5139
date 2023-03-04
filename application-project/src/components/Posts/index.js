@@ -25,10 +25,8 @@ export default function Posts({ posts }) {
   // This is run only on the first render - ie. before we've added any posts
   if (postList.length === 0) {
     var newPosts = getPosts(10);
-    console.log(newPosts.length);
 
     for (let i = 0; i < newPosts.length - 1; i++) {
-      console.log("entered loop");
       setPostList((postList) => [...postList, newPosts[i]]);
     }
   }
@@ -37,7 +35,6 @@ export default function Posts({ posts }) {
   const handleClick = () => {
     var newPosts = getPosts(5);
     for (let i = 0; i < newPosts.length - 1; i++) {
-      console.log("entered loop");
       setPostList((postList) => [...postList, newPosts[i]]);
     }
   };
