@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.header-component {
+    font-family: $title-font;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid $secondary-color;
+    background-color: $tertiary-color;
+    margin-bottom: 1rem;
+
+    @include breakpoint-small {
+        text-align: left;
+    }
+
+    .signup-button {
+        background-color: $success-color;
+        border-radius: 20px;
+        padding: 0.2rem 0.5rem;
+        opacity: 0.7;
+        border: none;
+        font-size: 1.1rem;
+        margin: 1rem;
+
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+
+    h1 {
+        margin: 0.2rem 0;
+        color: white;
+        opacity: 0.8;
+    }
+    
+}
