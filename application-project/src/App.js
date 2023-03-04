@@ -9,11 +9,11 @@ function App() {
 
   return (
     <>
+      <Header signin={showSignin} setShowSignin={setShowSignin}/>
       {showSignin&& (
         "Sign In Component"
       )
       }
-      <Header signin={showSignin} setShowSignin={setShowSignin}/>
       <Posts posts={posts} />
     </>
   );
