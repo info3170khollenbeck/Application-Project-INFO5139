@@ -3,6 +3,7 @@
         - break
         - selfcare
         - image
+        - trivia
 */
 
 const samplePosts = [

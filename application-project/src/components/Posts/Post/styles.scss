@@ -1,0 +1,39 @@
+@import "../../../styles/variables.scss";
+
+.post-component {
+  border: 1px solid $primary-color;
+  background-color: white;
+  max-width: 500px;
+  min-height: 150px;
+  margin: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+
+  h3 {
+    font-family: $title-font;
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  .source-field {
+    font-size: 0.9rem;
+
+    strong {
+      color: $primary-color;
+    }
+
+    a {
+      text-decoration: none;
+      color: $secondary-color;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .post-img {
+    max-width: 500px;
+  }
+}
