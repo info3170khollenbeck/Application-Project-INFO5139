@@ -16,17 +16,7 @@
     }
 
     .signup-button {
-        background-color: $success-color;
-        border-radius: 20px;
-        padding: 0.2rem 0.5rem;
-        opacity: 0.7;
-        border: none;
-        font-size: 1.1rem;
-        margin: 1rem;
-
-        &:hover {
-            background-color: $primary-color;
-        }
+        @include button;
     }
 
     h1 {

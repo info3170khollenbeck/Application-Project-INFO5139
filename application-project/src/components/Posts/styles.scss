@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+.more-posts-button {
+    text-align: center;
+
+  button {
+    @include button;
+  }
+}
