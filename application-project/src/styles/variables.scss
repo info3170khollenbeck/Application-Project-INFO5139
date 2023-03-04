@@ -7,3 +7,21 @@ $background-color: #B6F7F5;
 
 $body-font: 'Assistant', sans-serif;
 $title-font: 'Gaegu', cursive;
+
+@mixin breakpoint($min-width) {
+    @media only screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-small {
+    @include breakpoint(768px) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-large {
+    @include breakpoint(1280px) {
+      @content;
+    }
+  }

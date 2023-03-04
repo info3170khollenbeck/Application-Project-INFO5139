@@ -1,12 +1,14 @@
-import Posts from './components/Posts';
-import samplePosts from './content/posts';
+import Posts from "./components/Posts";
+import Header from "./components/Header";
+import samplePosts from "./content/posts";
 
 function App() {
   const posts = samplePosts;
   return (
-    <Posts 
-      posts={posts}
-    />
+    <>
+      <Header />
+      <Posts posts={posts} />
+    </>
   );
 }
 
