@@ -7,6 +7,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Header({ setShowSignin }) {
   const [error, setError] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -20,7 +22,7 @@ export default function Header({ setShowSignin }) {
       );
       setError('');
       setShowSignin(false);
-      console.log('success');
+      setUserEmail(emailRef.current.value);
     } catch (error) {
       setError('Failed to create an account');
     }
@@ -36,6 +38,8 @@ export default function Header({ setShowSignin }) {
       );
       setError('');
       setShowSignin(false);
+      setLoggedIn(true);
+      setUserEmail(emailRef.current.value);
     } catch (error) {
       setError('Failed to sign in');
     }
@@ -56,24 +60,28 @@ export default function Header({ setShowSignin }) {
     <>
       <div className='header-component'>
         <h1>BloomScroll</h1>
-        <Form>
-          <input type='email' placeholder='Email' ref={emailRef} />
-          <input type='password' placeholder='Password' ref={passwordRef} />
-          <button
-            name='signup'
-            onClick={handleSubmit}
-            className='signup-button'
-          >
-            Sign Up
-          </button>
-          <button
-            name='signin'
-            onClick={handleSubmit}
-            className='signup-button'
-          >
-            Sign In
-          </button>
-        </Form>
+        {loggedIn ? (
+          <p>Welcome and Enjoy! {userEmail}!</p>
+        ) : (
+          <Form>
+            <input type='email' placeholder='Email' ref={emailRef} />
+            <input type='password' placeholder='Password' ref={passwordRef} />
+            <button
+              name='signup'
+              onClick={handleSubmit}
+              className='signup-button'
+            >
+              Sign Up
+            </button>
+            <button
+              name='signin'
+              onClick={handleSubmit}
+              className='signup-button'
+            >
+              Sign In
+            </button>
+          </Form>
+        )}
       </div>
     </>
   );
