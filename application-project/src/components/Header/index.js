@@ -64,8 +64,18 @@ export default function Header({ setShowSignin }) {
           <p>Welcome and Enjoy! {userEmail}!</p>
         ) : (
           <Form>
-            <input type='email' placeholder='Email' ref={emailRef} />
-            <input type='password' placeholder='Password' ref={passwordRef} />
+            <input
+              type='email'
+              class='input-element'
+              placeholder='Email'
+              ref={emailRef}
+            />
+            <input
+              type='password'
+              class='input-element'
+              placeholder='Password'
+              ref={passwordRef}
+            />
             <button
               name='signup'
               onClick={handleSubmit}
