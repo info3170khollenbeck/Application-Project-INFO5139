@@ -5,8 +5,8 @@ $success-color: #8de969;
 $danger-color: #e4572e;
 $background-color: #b6f7f5;
 
-$body-font: "Assistant", sans-serif;
-$title-font: "Gaegu", cursive;
+$body-font: 'Assistant', sans-serif;
+$title-font: 'Gaegu', cursive;
 
 @mixin breakpoint($min-width) {
   @media only screen and (min-width: $min-width) {
@@ -46,7 +46,7 @@ $title-font: "Gaegu", cursive;
   opacity: 0.7;
   border: none;
   font-size: 1.1rem;
-  margin: 1rem;
+  margin: 0.3rem;
 
   &:hover {
     background-color: $primary-color;
