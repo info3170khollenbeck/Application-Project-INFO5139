@@ -2,8 +2,8 @@ import './styles.scss';
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 
 export default function Header({ setShowSignin }) {
   const [error, setError] = useState('');
@@ -22,7 +22,9 @@ export default function Header({ setShowSignin }) {
       );
       setError('');
       setShowSignin(false);
+      setLoggedIn(true);
       setUserEmail(emailRef.current.value);
+      console.log('User created!', emailRef.current.value);
     } catch (error) {
       setError('Failed to create an account');
     }
@@ -40,6 +42,7 @@ export default function Header({ setShowSignin }) {
       setShowSignin(false);
       setLoggedIn(true);
       setUserEmail(emailRef.current.value);
+      console.log('User logged in!', emailRef.current.value);
     } catch (error) {
       setError('Failed to sign in');
     }
@@ -49,10 +52,10 @@ export default function Header({ setShowSignin }) {
     e.preventDefault();
     if (e.target.name === 'signup') {
       await handleSignUp(e);
-      console.log('sc');
+      console.log('signup handled');
     } else if (e.target.name === 'signin') {
       await handleSignIn(e);
-      console.log('sc');
+      console.log('signin handled');
     }
   }
 
@@ -66,13 +69,13 @@ export default function Header({ setShowSignin }) {
           <Form>
             <input
               type='email'
-              class='input-element'
+              className='input-element'
               placeholder='Email'
               ref={emailRef}
             />
             <input
               type='password'
-              class='input-element'
+              className='input-element'
               placeholder='Password'
               ref={passwordRef}
             />
