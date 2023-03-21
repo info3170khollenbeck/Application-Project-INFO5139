@@ -29,20 +29,29 @@ $title-font: 'Gaegu', cursive;
 @mixin post-layout {
   border: 1px solid $primary-color;
   background-color: white;
-  width: 50%;
-  min-width: 400px;
-  max-width: 500px;
-  min-height: 100px;
   margin: auto;
-  margin-bottom: 1rem;
   border-radius: 5px;
   box-sizing: border-box;
+  min-height: 200px;
+
+  @media only screen and (max-width: 767px) {
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  @include breakpoint-small() {
+    flex: 1 0 45%;
+  }
+
+  @include breakpoint-large() {
+    flex: 1 0 30%;
+  }
 }
 
 @mixin button {
   background-color: $success-color;
   border-radius: 20px;
-  padding: 0.5rem 0.5rem;
+  padding: 0.6rem 0.75rem;
   opacity: 0.7;
   border: none;
   font-size: 1.1rem;
