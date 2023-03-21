@@ -1,6 +1,6 @@
-import Post from "./Post";
-import { useState } from "react";
-import "./styles.scss";
+import Post from './Post';
+import { useState } from 'react';
+import './styles.scss';
 
 export default function Posts({ posts }) {
   const [postList, setPostList] = useState([]);
@@ -41,12 +41,12 @@ export default function Posts({ posts }) {
 
   return (
     <main>
-      {postList.length === 0 && "No Posts to show!"}
+      {postList.length === 0 && 'No Posts to show!'}
       {postList.map((post, index) => (
         <Post {...post} key={index} />
       ))}
 
-      <div className="more-posts-button">
+      <div className='more-posts-button'>
         <button onClick={handleClick}>Load More Posts</button>
       </div>
     </main>

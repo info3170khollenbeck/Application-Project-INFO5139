@@ -1,9 +1,10 @@
 import './styles.scss';
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { auth } from '../../firebase';
+import { auth, database } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
 
 export default function Header({ setShowSignin }) {
   const [error, setError] = useState('');
@@ -15,12 +16,20 @@ export default function Header({ setShowSignin }) {
   async function handleSignUp(e) {
     e.preventDefault();
     try {
+      // Create a new user with Firebase Authentication
       await createUserWithEmailAndPassword(
         auth,
         emailRef.current.value,
         passwordRef.current.value
       );
-      setError('');
+      await setDoc(doc(database, 'users', auth.currentUser.uid), {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+        liked: [],
+        hidden: [],
+      });
+      // Set state and clear errors
+      setError('Your account have created!');
       setShowSignin(false);
       setUserEmail(emailRef.current.value);
     } catch (error) {
@@ -66,13 +75,13 @@ export default function Header({ setShowSignin }) {
           <Form>
             <input
               type='email'
-              class='input-element'
+              className='input-element'
               placeholder='Email'
               ref={emailRef}
             />
             <input
               type='password'
-              class='input-element'
+              className='input-element'
               placeholder='Password'
               ref={passwordRef}
             />
@@ -92,6 +101,7 @@ export default function Header({ setShowSignin }) {
             </button>
           </Form>
         )}
+        {error && <p>{error}</p>}
       </div>
     </>
   );
