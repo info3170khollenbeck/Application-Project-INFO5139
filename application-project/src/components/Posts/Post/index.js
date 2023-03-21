@@ -1,8 +1,10 @@
-import './styles.scss';
+import "./styles.scss";
+import "../../../styles/variables.scss";
 import { BsFillSuitHeartFill } from 'react-icons/bs'
 
-const likePost = () => {
+const likePost = (event) => {
   console.log("Hello there Like");
+  event.target.style.color = "#b57ba6";
 }
 
 export default function Post({ title, type, img, body, source }) {
