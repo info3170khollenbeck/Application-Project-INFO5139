@@ -38,3 +38,15 @@
     opacity: 0.8;
   }
 }
+
+.error-message {
+  font-size: 1rem;
+  font-family: $body-font;
+  font-weight: bold;
+  display: flex;
+
+  svg {
+    color: $danger-color;
+    font-size: 1.5rem;
+  }
+}
