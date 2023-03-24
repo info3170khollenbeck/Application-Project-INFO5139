@@ -10,7 +10,7 @@ export default function Post({ title, type, img, body, source }) {
 
   const likePost = (event) => {
     console.log("Hello there Like");
-    event.target.style.color = "#b57ba6";
+    event.target.style.color = "#ce48aa";
   }
 
   const hidePost = () => {
