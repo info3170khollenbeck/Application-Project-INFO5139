@@ -1,29 +1,75 @@
 @import "../../../styles/variables.scss";
 
+nav,
+section {
+  display: flex;
+  align-items: center;
+}
+
 .selfcare,
 .trivia,
 .break {
   @include post-layout;
   padding: 1rem;
+  padding-bottom: 20px;
+  border: 2.5px solid $primary-color;
 }
+
+/* Global styles */
+
+.container {
+  position: inline-flex;
+  background-color: #fff;
+  display: block;
+  min-width: 500px;
+  align-items: center;
+}
+
+.row {
+  display: block;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.div {
+  justify-content: center;
+}
+
+.section img {
+  width: 100%;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.col-md-5 {
+  display: flex;
+  min-width: 500px;
+  justify-content: space-between;
+}
+
+.col-md-5 h3 {
+  text-align: center;
+  font-family: $title-font;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.like-field {
+  text-align: center;
+}
+
+.like-field button {
+  margin-right: 20px;
+} 
 
 .image {
     @include post-layout;
-    padding: 0;
-
-    div {
-        padding: 0;
-        margin: 0;
-    }
+    padding-bottom: 20px;
+    border: 2.5px solid $primary-color;
 }
 
-  h3 {
-    font-family: $title-font;
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
-
-  .source-field {
+.source-field {
     font-size: 0.9rem;
 
     strong {
@@ -41,8 +87,24 @@
   }
 
   .post-img {
-    width: 100%;
-    margin: 0;
-    display: block;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+    flex-basis: 33.33%;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid gray;
   }
+
+  /* Responsive styles */
+@media screen and (max-width: 767px) {
+  .col {
+    flex-basis: 100%;
+  }
+}
 

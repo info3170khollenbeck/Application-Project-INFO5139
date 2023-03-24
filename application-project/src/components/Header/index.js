@@ -77,7 +77,7 @@ export default function Header({ setShowSignin }) {
 	return (
 		<>
 			<div className='header-component'>
-				<h1>BloomScroll</h1>
+				<h1 className='logo-component'>BloomScroll</h1>
 				{loggedIn ? (
 					<p className='user-greeting'><HiUser /> {getEmailUsername(userEmail)}</p>
 				) : (
