@@ -36,10 +36,8 @@ function LikedPostPage() {
         <div key={post.id} className={'post'}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
-          {post.img && post.source ? (
+          {post.img && (
             <img className='post-img' src={post.img} alt={post.title}></img>
-          ) : (
-            <img className='post-img' src={post.img} alt='nopic'></img>
           )}
           {post.source && (
             <div className='source-field'>
