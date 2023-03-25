@@ -18,7 +18,7 @@ export default function Post({ id, title, type, img, body, source }) {
   const [copiedMessageVisible, setCopiedMessageVisible] = useState('hidden');
 
   async function likePost(event, id) {
-    console.log('this is working!');
+    console.log('liked!');
     event.target.style.color = '#b57ba6';
     const userDocRef = doc(database, 'users', auth.currentUser.uid);
     const userDoc = await getDoc(userDocRef);
