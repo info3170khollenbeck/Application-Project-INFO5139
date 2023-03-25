@@ -2,6 +2,10 @@ import Posts from "./components/Posts";
 import Header from "./components/Header";
 import samplePosts from "./content/posts";
 import {useState} from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import HomePage from "./pages/HomePage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   const posts = samplePosts;
@@ -14,7 +18,10 @@ function App() {
         "Sign In Component"
       )
       }
-      <Posts posts={posts} />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='posts/:id' element={<PostPage />} />
+      </Routes>
     </>
   );
 }

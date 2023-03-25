@@ -10,14 +10,14 @@ const samplePosts = [
     {
         id: 1,
         title: "Enjoying Bloomscroll?",
-        img: "./images/flowers1.jpg",
+        img: "../images/flowers1.jpg",
         type: "break",
         body: "Are you using Bloomscroll to avoid doing something else? If so, consider this your reminder to close the app and get it done!"
     },
     {
         id: 2,
         title: "Rest Stop",
-        img: "./images/campfire.png",
+        img: "../images/campfire.png",
         type: "break",
         body: "Remember to unclench your jaw, shoulders, and anywhere else you might be holding tension. "
     },
@@ -31,42 +31,42 @@ const samplePosts = [
     {
         id: 4,
         type: "image",
-        img: "./images/birdbranch.jpg"
+        img: "../images/birdbranch.jpg"
     },
     {
         id: 5,
         type: "image",
-        img: "./images/flowercat.jpg"
+        img: "../images/flowercat.jpg"
     },
     {
         id: 6,
         type: "image",
-        img: "./images/flowerdog.png"
+        img: "../images/flowerdog.png"
     },
     {
         id: 7,
         type: "image",
-        img: "./images/grasschick.jpg"
+        img: "../images/grasschick.jpg"
     },
     {
         id: 8,
         type: "image",
-        img: "./images/meadowcat.jpg",
+        img: "../images/meadowcat.jpg",
     },
     {
         id: 9,
         type: "image",
-        img: "./images/meadowchipmunk.jpg"
+        img: "../images/meadowchipmunk.jpg"
     },
     {
         id: 10,
         type: "image",
-        img: "./images/sleepdog.jpg"
+        img: "../images/sleepdog.jpg"
     },
     {
         id: 11,
         type: "image",
-        img: "./images/sleepkitten.jpg"
+        img: "../images/sleepkitten.jpg"
     },
     {
         id: 12,

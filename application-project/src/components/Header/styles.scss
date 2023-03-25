@@ -2,9 +2,9 @@
 .input-element {
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333;
   background-color: #f5f5f5;
 
@@ -33,9 +33,14 @@
   }
 
   h1 {
-    margin: 0.2rem 0;
-    color: white;
-    opacity: 0.8;
+    font-size: 3rem;
+    margin: 0.2rem 1rem;
+
+    a {
+      text-decoration: none;
+      color: white;
+      opacity: 0.8;
+    }
   }
 }
 
