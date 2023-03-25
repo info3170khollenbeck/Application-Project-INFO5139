@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 export default function Post({ id, title, type, img, body, source }) {
 	const [isHidden, setIsHidden] = useState(true);
+	const [showClipboardText, setShowClipboardText] = useState(false);
+	const [copiedMessageVisible, setCopiedMessageVisible] = useState('hidden');
 
 	const likePost = (event) => {
 		console.log('Hello there Like');
@@ -22,6 +24,12 @@ export default function Post({ id, title, type, img, body, source }) {
 	const sharePost = () => {
 		let url = 'localhost:3000/posts/' + id;
 		navigator.clipboard.writeText(url);
+		// setShowClipboardText(true);
+		setCopiedMessageVisible('visible');
+		setTimeout(() => {
+			// setShowClipboardText(false);
+			setCopiedMessageVisible('hidden');
+		}, 2000)
 	};
 
 	return isHidden ? (
@@ -45,7 +53,9 @@ export default function Post({ id, title, type, img, body, source }) {
 				</button>
 				<button className='shareButton' onClick={sharePost}>
 					<BiShareAlt size={30} />
+					<span className={'copied-text-alert ' + copiedMessageVisible}>Link copied!</span>
 				</button>
+				
 			</div>
 		</div>
 	) : null;

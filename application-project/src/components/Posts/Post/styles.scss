@@ -73,3 +73,22 @@ h3 {
 	margin: 0;
 	display: block;
 }
+
+.copied-text-alert {
+	background: $primary-color;
+	position: absolute;
+	padding: 0.5rem;
+	font-size: 0.9rem;
+	border-radius: 5px;
+	color: white;
+	transition: 0.5s;
+
+	&.hidden {
+		opacity: 0;
+	}
+
+	&.visible {
+		opacity: 0.8;
+	}
+
+}
