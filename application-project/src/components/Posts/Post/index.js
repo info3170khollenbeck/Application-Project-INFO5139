@@ -1,6 +1,31 @@
 import './styles.scss';
+import '../../../styles/variables.scss';
+import { BsFillSuitHeartFill } from 'react-icons/bs';
+import { auth, database } from '../../../firebase';
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  getDoc,
+  setDoc,
+} from '@firebase/firestore';
 
-export default function Post({ title, type, img, body, source }) {
+async function likePost(event, id) {
+  console.log('this is working!');
+  event.target.style.color = '#b57ba6';
+  const userDocRef = doc(database, 'users', auth.currentUser.uid);
+  const userDoc = await getDoc(userDocRef);
+  if (!userDoc.exists()) {
+    // create user document if it doesn't exist
+    await setDoc(userDocRef, { likedPosts: [] });
+  }
+  // add post to likedPosts array
+  await updateDoc(userDocRef, {
+    likedPosts: arrayUnion(id),
+  });
+}
+
+export default function Post({ id, title, type, img, body, source }) {
   return (
     <div className={type}>
       {title && <h3>{title}</h3>}
@@ -12,10 +37,9 @@ export default function Post({ title, type, img, body, source }) {
           <a href={source}>{source}</a>
         </div>
       )}
-      <div className='like-field'>
-        <button>Like</button>
-        <span>likes</span>
-      </div>
+      <button className='likeButton' onClick={(event) => likePost(event, id)}>
+        <BsFillSuitHeartFill size={30} />
+      </button>
     </div>
   );
 }
