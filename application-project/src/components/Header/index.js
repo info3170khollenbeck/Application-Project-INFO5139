@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from '@firebase/auth';
 import { signInWithEmailAndPassword } from '@firebase/auth';
 import { MdErrorOutline } from 'react-icons/md';
 import { HiUser } from 'react-icons/hi';
+import { NavLink } from 'react-router-dom';
 
 export default function Header({ setShowSignin }) {
 	const [error, setError] = useState('');
@@ -77,7 +78,7 @@ export default function Header({ setShowSignin }) {
 	return (
 		<>
 			<div className='header-component'>
-				<h1>BloomScroll</h1>
+				<h1><NavLink to='/'>BloomScroll</NavLink></h1>
 				{loggedIn ? (
 					<p className='user-greeting'><HiUser /> {getEmailUsername(userEmail)}</p>
 				) : (
