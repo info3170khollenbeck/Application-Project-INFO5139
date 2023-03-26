@@ -1,0 +1,109 @@
+@import '../../styles/variables.scss';
+
+.more-posts-button {
+  text-align: center;
+
+  button {
+    @include button;
+  }
+}
+
+.posts-component {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px 20px;
+  padding: 1rem;
+}
+.selfcare,
+.trivia,
+.break {
+  @include post-layout;
+
+  p,
+  h3 {
+    padding: 0 1rem;
+  }
+}
+
+.image {
+  @include post-layout;
+  padding: 0;
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+h3 {
+  font-family: $title-font;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.source-field {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+
+  strong {
+    color: $primary-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary-color;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid $primary-color;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  button {
+    background: none;
+    border: none;
+    color: grey;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.post-img {
+  width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.copied-text-alert {
+  background: $primary-color;
+  position: absolute;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  color: white;
+  transition: 0.5s;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.visible {
+    opacity: 0.8;
+  }
+}

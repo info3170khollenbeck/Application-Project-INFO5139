@@ -32,9 +32,13 @@ export default function Post({ id, title, type, img, body, source }) {
     });
   }
 
-  const hidePost = () => {
+  const hidePost = async (id) => {
     console.log('The content is now hidden');
     setIsHidden(false);
+    const userDocRef = doc(database, 'users', auth.currentUser.uid);
+    await updateDoc(userDocRef, {
+      hiddenPosts: arrayUnion(id),
+    });
   };
 
   // Since there's no dedicated URL, this shares to localhost:3000/posts/:id
@@ -66,7 +70,7 @@ export default function Post({ id, title, type, img, body, source }) {
           <BsFillSuitHeartFill size={30} />
         </button>
 
-        <button className='hideButton' onClick={hidePost}>
+        <button className='hideButton' onClick={() => hidePost(id)}>
           <BiHide size={30} />
         </button>
         <button className='shareButton' onClick={sharePost}>

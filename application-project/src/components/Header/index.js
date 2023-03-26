@@ -89,6 +89,9 @@ export default function Header({ setShowSignin }) {
             <Link to='/posts/liked' className='nav-link'>
               Liked Posts
             </Link>
+            <Link to='/posts/unliked' className='nav-link'>
+              unliked Posts
+            </Link>
           </div>
         ) : (
           <Form>

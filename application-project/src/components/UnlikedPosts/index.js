@@ -1,13 +1,12 @@
 import './styles.scss';
-
-import LikedPost from './Posts/index';
+import UnlikedPost from './Posts/index';
 import { useState, useEffect } from 'react';
 import { database, auth } from '../../firebase';
 import { doc, getDoc } from '@firebase/firestore';
 
-function UnLikedPosts({ post }) {
+function UnlikedPosts({ post }) {
   const [userData, setUserData] = useState(null);
-  const [likedPosts, setLikedPosts] = useState([]);
+  const [unlikedPosts, setunLikedPosts] = useState([]);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -15,7 +14,7 @@ function UnLikedPosts({ post }) {
         getDoc(userRef).then((doc) => {
           if (doc.exists()) {
             setUserData(doc.data());
-            setLikedPosts(doc.data().likedPosts);
+            setunLikedPosts(doc.data().hiddenPosts);
           }
         });
       }
@@ -25,14 +24,16 @@ function UnLikedPosts({ post }) {
       unsubscribe();
     };
   }, []);
-  const likedSamplePosts = post.filter((post) => likedPosts.includes(post.id));
+  const likedSamplePosts = post.filter((post) =>
+    unlikedPosts.includes(post.id)
+  );
 
   return (
     <main>
       <div className='posts-component'>
-        {likedSamplePosts.length === 0 && 'No liked posts to show!'}
+        {likedSamplePosts.length === 0 && 'No hidden posts to show!'}
         {likedSamplePosts.map((post) => (
-          <LikedPost
+          <UnlikedPost
             key={post.id}
             id={post.id}
             title={post.title}
@@ -47,4 +48,4 @@ function UnLikedPosts({ post }) {
   );
 }
 
-export default UnLikedPosts;
+export default UnlikedPosts;
