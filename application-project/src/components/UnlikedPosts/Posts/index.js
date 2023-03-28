@@ -8,7 +8,7 @@ import {
   updateDoc,
   arrayRemove,
 } from 'firebase/firestore';
-
+import { BiRedo } from 'react-icons/bi';
 export default function UnlikedPost({ id, title, type, img, body, source }) {
   const [isHidden, setIsHidden] = useState(true);
   const handleDelete = async (postId) => {
@@ -37,7 +37,9 @@ export default function UnlikedPost({ id, title, type, img, body, source }) {
           <a href={source}>{source}</a>
         </div>
       )}
-      <button onClick={() => handleDelete(id)}>Delete</button>
+      <button onClick={() => handleDelete(id)}>
+        <BiRedo size={30} />
+      </button>
     </div>
   ) : null;
 }

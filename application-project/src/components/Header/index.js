@@ -86,12 +86,15 @@ export default function Header({ setShowSignin }) {
             <p className='user-greeting'>
               <HiUser /> {getEmailUsername(userEmail)}
             </p>
-            <Link to='/posts/liked' className='nav-link'>
-              Liked Posts
-            </Link>
-            <Link to='/posts/unliked' className='nav-link'>
-              unliked Posts
-            </Link>
+            <div className='link'>
+              <Link to='/posts/liked' className='nav-link'>
+                Liked Posts
+              </Link>
+              <br />
+              <Link to='/posts/unliked' className='nav-link'>
+                unliked Posts
+              </Link>
+            </div>
           </div>
         ) : (
           <Form>
