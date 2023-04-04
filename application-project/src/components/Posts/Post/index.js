@@ -14,8 +14,8 @@ import { useState } from 'react';
 
 export default function Post({ id, title, type, img, body, source }) {
   const [isHidden, setIsHidden] = useState(true);
-  const [showClipboardText, setShowClipboardText] = useState(false);
   const [copiedMessageVisible, setCopiedMessageVisible] = useState('hidden');
+  
 
   async function likePost(event, id) {
     console.log('liked!');

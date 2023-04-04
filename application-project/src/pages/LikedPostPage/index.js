@@ -1,11 +1,29 @@
 import React from 'react';
 import LikedPosts from '../../components/LikedPosts';
-import samplePosts from '../../content/posts';
+import { useState, useEffect } from 'react';
+import * as database from '../../database';
 
 function LikedPostPage() {
-  const posts = samplePosts;
+	const [isLoading, setIsLoading] = useState(true);
+	const [posts, setPosts] = useState([]);
 
-  return <LikedPosts post={posts} />;
+	useEffect(() => {
+		(async () => {
+			const data = await database.loadPosts();
+			const postsFromDb = data.map((x) => {
+				return { ...x };
+			});
+			setPosts(postsFromDb);
+			setIsLoading(false);
+		})();
+	}, []);
+
+	return (
+		<>
+			{isLoading && <div>Loading...</div>}
+			{!isLoading && <LikedPosts post={posts} />}
+		</>
+	);
 }
 
 export default LikedPostPage;
