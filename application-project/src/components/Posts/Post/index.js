@@ -11,11 +11,16 @@ import {
 } from '@firebase/firestore';
 import { BiHide, BiShareAlt } from 'react-icons/bi';
 import { useState } from 'react';
+import ToggleFont from '../../ToggleFont';
 
-export default function Post({ id, title, type, img, body, source }) {
+export default function Post({ id, title, type, img, body, source, isLargeFont }) {
   const [isHidden, setIsHidden] = useState(true);
   const [copiedMessageVisible, setCopiedMessageVisible] = useState('hidden');
-  
+
+  const toggleFont = () => {
+    setIsLargeFont(!isLargeFont);
+  };
+
 
   async function likePost(event, id) {
     console.log('liked!');
@@ -57,7 +62,7 @@ export default function Post({ id, title, type, img, body, source }) {
   return isHidden ? (
     <div className={'post-component ' + type}>
       {title && <h3>{title}</h3>}
-      {body && <p>{body}</p>}
+      {body && <p className={`post-body ${isLargeFont ? 'large-font' : ''}`}>{body}</p>}
       {img && <img className='post-img' src={img} alt={title} />}
       {source && (
         <div className='source-field'>
@@ -79,6 +84,9 @@ export default function Post({ id, title, type, img, body, source }) {
             Link copied!
           </span>
         </button>
+        <ToggleFont isLargeFont={isLargeFont} setIsLargeFont={setIsLargeFont}>
+          {body && <p className="post-body">{body}</p>}
+        </ToggleFont>
       </div>
     </div>
   ) : null;

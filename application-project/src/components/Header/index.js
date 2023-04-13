@@ -14,8 +14,8 @@ export default function Header({ setShowSignin }) {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [showLoginFields, setShowLoginFields] = useState(false);
-  const [fontSize, setFontSize] = useState(16); // initial font size of 16px
-  const [darkMode, setDarkMode] = useState(false); // Setting a darkmode 
+  // const [fontSize, setFontSize] = useState(16); // initial font size of 16px
+  // const [darkMode, setDarkMode] = useState(false); // Setting a darkmode 
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -92,8 +92,8 @@ export default function Header({ setShowSignin }) {
         <h1>
           <NavLink to='/'>BloomScroll</NavLink>
         </h1>
-        <button onClick={handleToggleFontSize}>Toggle Font Size</button>
-        <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button>
+        {/* <button onClick={handleToggleFontSize}>Toggle Font Size</button>
+        <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button> */}
         {loggedIn ? (
           <div className='nav'>
             <p className='user-greeting'>
