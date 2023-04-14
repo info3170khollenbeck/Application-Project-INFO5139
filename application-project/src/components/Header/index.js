@@ -1,5 +1,5 @@
 import './styles.scss';
-import './styles-dark.scss';
+//import './styles-dark.scss';
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { auth } from '../../firebase';
@@ -78,17 +78,17 @@ export default function Header({ setShowSignin }) {
     return myArray[0];
   };
 
-  function handleToggleFontSize() {
-    setFontSize(fontSize === 16 ? 24 : 16); // toggle between 16px and 24px
-  }
+  // function handleToggleFontSize() {
+  //   setFontSize(fontSize === 16 ? 24 : 16); // toggle between 16px and 24px
+  // }
 
-  function handleToggleDarkMode() {
-    setDarkMode(!darkMode);
-  }
+  // function handleToggleDarkMode() {
+  //   setDarkMode(!darkMode);
+  // }
 
   return (
     <>
-      <div className={`header-component ${darkMode ? 'dark' : ''}`}>
+      <div className='header-component'>
         <h1>
           <NavLink to='/'>BloomScroll</NavLink>
         </h1>

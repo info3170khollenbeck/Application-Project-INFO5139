@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import './styles.scss';
+import { useState } from 'react';
 
-const ToggleFont = ({ children, isLargeFont, setIsLargeFont }) => {
-  const toggleFont = () => {
+function ToggleFont({ onChange }) {
+  const [isLargeFont, setIsLargeFont] = useState(false);
+
+  const toggleFontSize = () => {
     setIsLargeFont(!isLargeFont);
+    onChange && onChange(!isLargeFont);
   };
 
   return (
-    <div className={isLargeFont ? 'large-font' : ''}>
-      <button onClick={toggleFont}>Toggle Font Size</button>
-      {children}
-    </div>
+    <button className='fontSizeButton' onClick={toggleFontSize}>
+      {isLargeFont ? 'Small' : 'Large'} Font
+    </button>
   );
-};
+}
 
 export default ToggleFont;
