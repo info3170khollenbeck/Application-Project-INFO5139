@@ -1,5 +1,4 @@
 import './styles.scss';
-//import './styles-dark.scss';
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { auth } from '../../firebase';
@@ -14,8 +13,6 @@ export default function Header({ setShowSignin }) {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [showLoginFields, setShowLoginFields] = useState(false);
-  // const [fontSize, setFontSize] = useState(16); // initial font size of 16px
-  // const [darkMode, setDarkMode] = useState(false); // Setting a darkmode 
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -78,22 +75,12 @@ export default function Header({ setShowSignin }) {
     return myArray[0];
   };
 
-  // function handleToggleFontSize() {
-  //   setFontSize(fontSize === 16 ? 24 : 16); // toggle between 16px and 24px
-  // }
-
-  // function handleToggleDarkMode() {
-  //   setDarkMode(!darkMode);
-  // }
-
   return (
     <>
       <div className='header-component'>
         <h1>
           <NavLink to='/'>BloomScroll</NavLink>
         </h1>
-        {/* <button onClick={handleToggleFontSize}>Toggle Font Size</button>
-        <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button> */}
         {loggedIn ? (
           <div className='nav'>
             <p className='user-greeting'>
