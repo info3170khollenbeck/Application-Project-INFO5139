@@ -19,10 +19,10 @@ function LikedPostPage() {
 	}, []);
 
 	return (
-		<>
+		<main>
 			{isLoading && <div>Loading...</div>}
 			{!isLoading && <LikedPosts post={posts} />}
-		</>
+		</main>
 	);
 }
 

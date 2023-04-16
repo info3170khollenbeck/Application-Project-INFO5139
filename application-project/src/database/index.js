@@ -1,1 +1,2 @@
-export { loadPosts } from './read';
+export { loadPosts, IsUserLoggedIn, GetDarkmodePref } from './read';
+export { SaveDarkmodePref } from './write';

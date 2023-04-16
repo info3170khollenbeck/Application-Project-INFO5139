@@ -9,3 +9,56 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  html, body {
+    height: 100%;
+
+  }
+
+  #root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    min-height: 100%;
+  }
+
+  .posts-component {
+    height: 100%;
+  }
+
+  .darkmode-false {
+    transition: 500ms;
+
+    .post-component {
+      transition: 500ms;
+
+      .buttonDiv {
+        transition: 500ms;
+      }
+    }
+  }
+
+  .darkmode-true {
+    background-color: $dark-background-color;
+    color: white;
+    transition: 500ms;
+
+    .post-component {
+      color: white;
+      background-color: $dark-post-background-color;
+      border: 1px solid $dark-border-color;
+      transition: 500ms;
+
+      a {
+        color: $background-color;
+      }
+
+      .buttonDiv {
+        border: 1px solid $dark-border-color;
+        transition: 500ms;
+      }
+    }
+  }
